@@ -1,0 +1,22 @@
+{
+  "name": "openurl-contextobject-transformer",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/NYULibraries/openurl-contextobject-transformer.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/NYULibraries/openurl-contextobject-transformer/issues"
+  },
+  "homepage": "https://github.com/NYULibraries/openurl-contextobject-transformer#readme",
+  "dependencies": {
+    "object-to-xml": "^1.1.0"
+  }
+}
