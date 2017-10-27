@@ -28,10 +28,16 @@ function pair_key_transformation(pair){
 function has_nil_key(pair){
   return pair[0];
 };
+function get_format(json_data){
+  let format_mapping = {
+    "journal" : "info:ofi/fmt:xml:xsd:journal"
+  };
+  return format_mapping[json_data["rft.genre"]] || format_mapping["journal"];
+};
 
 
 
-let xmlify = data.split('&')
+let jsonify = data.split('&')
                  .filter(has_equal_sign)
                  .map(split_by_equal_sign)
                  .filter(pair_has_second_element)
@@ -58,8 +64,16 @@ let obj = {
               '#' : {
                 "ctx:metadata-by-val" : {
                   '#' : {
-                    "ctx:format" : "",
-                    "ctx:metadata" : xmlify
+                    "ctx:format" : get_format(jsonify),
+                    "ctx:metadata" : {
+                      "rft:journal" : {
+                        '@' : {
+                          "xmlns:rft" : get_format(jsonify),
+                          "xsi:schemaLocation" : get_format(jsonify) + " http://www.openurl.info/registry/docs/info:ofi/fmt:xml:xsd:journal"
+                        },
+                        '#' : jsonify
+                      }
+                    }
                   }
                 }
               }
