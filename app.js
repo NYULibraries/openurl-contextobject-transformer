@@ -69,7 +69,7 @@ let obj = {
                       "rft:journal" : {
                         '@' : {
                           "xmlns:rft" : get_format(jsonify),
-                          "xsi:schemaLocation" : get_format(jsonify) + " http://www.openurl.info/registry/docs/info:ofi/fmt:xml:xsd:journal"
+                          "xsi:schemaLocation" : get_format(jsonify) + " http://www.openurl.info/registry/docs/" + get_format(jsonify)
                         },
                         '#' : jsonify
                       }
